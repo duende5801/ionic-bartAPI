@@ -10,13 +10,24 @@ import { Etds } from '../interfaces/etds';
 })
 export class FolderPage implements OnInit {
   public folder: string;
-  public times: Etds[] = [];
+  public routes = [];
 
   constructor(private activatedRoute: ActivatedRoute, private dService: DataService) { }
 
   ngOnInit() {
-    //this.times = this.dService.getTime(this.folder);
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+    this.routes = this.dService.routeDeets();
+  }
+  parseETD() {
+    parsed-etd
+    for (const s of this.routes.etd) {
+      const info =  {
+        destination: s.name,
+        abbrieviation: s.abbr,
+        estimate: [],
+      };
+
+    }
   }
 
 }

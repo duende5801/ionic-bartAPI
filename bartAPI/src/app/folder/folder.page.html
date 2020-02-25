@@ -15,7 +15,10 @@
   </ion-header>
 
   <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-grid>
+      <ion-row>
+        <strong class="capitalize" *ngFor="let x of routes">{{x.etd}}</strong>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>
