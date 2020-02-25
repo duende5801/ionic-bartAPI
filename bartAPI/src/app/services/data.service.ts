@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Stations } from '../interfaces/stations';
 import { Etds } from '../interfaces/etds';
-import { Estimate } from '../interfaces/estimate';
 
 
 @Injectable({
@@ -47,7 +46,12 @@ export class DataService {
             estimate: []
           }
           for (const j of s.estimate) {
-            info.estimate.push(j)
+            let newObj = {
+              minutes: j.minutes,
+              platform: j.platform
+            }
+            info.estimate.push(newObj);
+             
             }
             this.routeTimes.push(info);
           }
@@ -77,7 +81,7 @@ export class DataService {
   sideMenu(): Stations[] {
     return this.stationName;
   }
-  routeDeets(): Etds[] {
+  routeDeets() {
     return this.routeTimes;
   }
 }

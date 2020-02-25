@@ -15,11 +15,20 @@
   </ion-header>
 
   <div id="container">
+    <h1>Departing To:</h1>
     <ion-grid>
-      <ion-row *ngFor="let x of routes">
-        <strong class="capitalize" >{{x.name}}</strong>
-        <ion-row *ngFor="let y of routes">{{y.estimate}}</ion-row>
-        <p></p>
+      <ion-row *ngFor="let x of routes: let i = index">
+        <ion-col size="12" >
+          <strong class="capitalize" >{{x.name}}</strong>
+        </ion-col>
+        <ion-col>
+          <h5>Departure Time</h5>
+          <ion-row class="ion-justify-content-center" *ngFor="let y of x.estimate: let j = index">{{y.minutes}}</ion-row>
+        </ion-col>
+        <ion-col>
+          <h5>Platform</h5>
+          <ion-row class="ion-justify-content-center" *ngFor="let z of x.estimate: let k = index">{{z.platform}}</ion-row>
+        </ion-col>
       </ion-row>
     </ion-grid>
   </div>
