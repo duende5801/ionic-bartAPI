@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Stations } from '../interfaces/stations';
-import { Etds } from '../interfaces/etds';
 
 
 @Injectable({
