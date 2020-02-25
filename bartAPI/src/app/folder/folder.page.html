@@ -16,8 +16,10 @@
 
   <div id="container">
     <ion-grid>
-      <ion-row>
-        <strong class="capitalize" *ngFor="let x of routes">{{x.etd}}</strong>
+      <ion-row *ngFor="let x of routes">
+        <strong class="capitalize" >{{x.name}}</strong>
+        <ion-row *ngFor="let y of routes">{{y.estimate}}</ion-row>
+        <p></p>
       </ion-row>
     </ion-grid>
   </div>

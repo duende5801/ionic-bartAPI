@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
-import { Etds } from '../interfaces/etds';
 
 @Component({
   selector: 'app-folder',
@@ -18,16 +17,14 @@ export class FolderPage implements OnInit {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.routes = this.dService.routeDeets();
   }
-  parseETD() {
-    parsed-etd
-    for (const s of this.routes.etd) {
-      const info =  {
-        destination: s.name,
-        abbrieviation: s.abbr,
-        estimate: [],
-      };
+  // parseETD() {
+  //   parsed-etd
+  //   for (const s of this.routes.etd) {
+  //     const info =  {
+  //       destination: s.name,
+  //       abbrieviation: s.abbr,
+  //       estimate: [],
+  //     };
 
-    }
+  //   }
   }
-
-}

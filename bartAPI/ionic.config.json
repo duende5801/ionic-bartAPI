@@ -1,5 +1,7 @@
 {
   "name": "bartAPI",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

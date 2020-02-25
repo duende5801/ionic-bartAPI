@@ -71,6 +71,6 @@ export class AppComponent implements OnInit {
     }
   }
   param(abbr) {
-    this.dService.getRoutes2(abbr);
+    this.dService.getRoutes(abbr);
   }
 }

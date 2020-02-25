@@ -35,44 +35,43 @@ export class DataService {
       });
     }
     getRoutes(ABBR) {
+      this.routeTimes = [];
       const fullURL = this.urlETD + ABBR + this.urlKey;
       this.times = this.http.get(fullURL);
       console.log(fullURL);
       this.times.subscribe(
         x => {
-        for (const s of x.root.station) {
-          const info =  {
-            name: s.name,
-            abbr: s.abbr,
-            etd: []
-          };
-          for (const e of s.etd) {
-            info.etd.push(e);
+        for (const s of x.root.station[0].etd) {
+          let info = {
+            name: s.destination,
+            estimate: []
           }
-          this.routeTimes.shift();
-          this.routeTimes.push(info);
-        }
+          for (const j of s.estimate) {
+            info.estimate.push(j)
+            }
+            this.routeTimes.push(info);
+          }
         console.log(this.routeTimes);
       });
   }
-    getRoutes2(ABBR) {
-      const fullURL = this.urlETD + ABBR + this.urlKey;
-      this.times = this.http.get(fullURL);
-      console.log(fullURL);
-      this.times.subscribe(
-        x => {
-          for (const p of x.root.station.etd) {
-            const info = {
-              destination: p.destination,
-              abbrieviation: p.abbrieviation,
-              estimate: []
-            };
-            this.routeTimes.shift();
-            this.routeTimes.push(info);
-          }
-          console.log(this.routeTimes);
-        });
-  }
+  //   getRoutes2(ABBR) {
+  //     const fullURL = this.urlETD + ABBR + this.urlKey;
+  //     this.times = this.http.get(fullURL);
+  //     console.log(fullURL);
+  //     this.times.subscribe(
+  //       x => {
+  //         for (const p of x.root.station.etd) {
+  //           const info = {
+  //             destination: p.destination,
+  //             abbrieviation: p.abbrieviation,
+  //             estimate: []
+  //           };
+  //           this.routeTimes.shift();
+  //           this.routeTimes.push(info);
+  //         }
+  //         console.log(this.routeTimes);
+  //       });
+  // }
 
   // --------------------non-http functions----------------- //
   sideMenu(): Stations[] {
