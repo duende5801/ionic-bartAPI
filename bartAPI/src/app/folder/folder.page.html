@@ -15,15 +15,14 @@
   </ion-header>
 
   <div id="container">
-    <h1>Departing To:</h1>
     <ion-list *ngFor="let x of routes">
       <ion-item-divider>
         <ion-label>Destination: </ion-label>
         <ion-label><strong> {{x.name}}</strong></ion-label>      
       </ion-item-divider>
         <ion-item *ngFor="let y of x.estimate">
-          <ion-label>{{y.minutes}}</ion-label>
-          <ion-label>{{y.platform}}</ion-label>
+          <ion-label>{{y.minutes}} Minutes</ion-label>
+          <ion-label>Platform {{y.platform}}</ion-label>
         </ion-item>
     </ion-list>
   </div>
