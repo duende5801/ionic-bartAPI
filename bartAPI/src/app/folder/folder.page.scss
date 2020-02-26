@@ -23,7 +23,30 @@ ion-menu-button {
 #container a {
   text-decoration: none;
 }
-
+.RED{
+  background-color: red;
+  color: white;
+}
+.YELLOW{
+  background-color: yellow;
+}
+.ORANGE{
+  background-color: orange;
+}
+.PURPLE{
+  background-color: purple;
+  color: white;
+}
+.GREEN{
+  background-color: green;
+}
+.BLUE{
+  background-color: blue;
+  color: white;
+}
+.GREY{
+  background-color: lightgrey;
+}
 ion-content ion-toolbar {
   --background: transparent;
 }

@@ -13,6 +13,7 @@ export class DataService {
   private stations;
   private times;
   private stationName: Stations[] = [];
+  private address = [];
   private routeTimes = [];
 
   constructor(private http: HttpClient) {
@@ -25,34 +26,34 @@ export class DataService {
         for (const s of x.root.stations.station) {
           const info: Stations = {
             name: s.name,
-            abbr: s.abbr
+            abbr: s.abbr,
+            address: s.address,
+            city: s.city
           };
           this.stationName.push(info);
         }
-        console.log(this.stationName);
       });
     }
     getRoutes(ABBR) {
       this.routeTimes = [];
       const fullURL = this.urlETD + ABBR + this.urlKey;
       this.times = this.http.get(fullURL);
-      console.log(fullURL);
       this.times.subscribe(
         x => {
         for (const s of x.root.station[0].etd) {
-          let info = {
+          const info = {
             name: s.destination,
             estimate: []
-          }
+          };
           for (const j of s.estimate) {
-            let newObj = {
+            const newObj = {
               minutes: j.minutes,
-              platform: j.platform
-            }
+              platform: j.platform,
+              color: j.color
+            };
             info.estimate.push(newObj);
-             
             }
-            this.routeTimes.push(info);
+          this.routeTimes.push(info);
           }
         console.log(this.routeTimes);
       });
@@ -82,5 +83,15 @@ export class DataService {
   }
   routeDeets() {
     return this.routeTimes;
+  }
+  displayAddress(ABBR) {
+    this.address = [];
+    for (const s of this.stationName) {
+      if (s.abbr === ABBR) {
+        this.address.push(s);
+      }
+      console.log(this.address);
+      return this.address;
+    }
   }
 }

@@ -4,7 +4,7 @@
       <ion-content>
         <ion-list id="inbox-list">
           <ion-list-header>Bart</ion-list-header>
-
+          <ion-item routerDirection="root" routerLink="/folder/home" lines="none" detail="false">home</ion-item>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of stationNames; let i = index">
             <ion-item (click)="selectedIndex = i" (click)="param(p.abbr)" routerDirection="root" routerLink="/folder/{{p.abbr}}" lines="none" detail="false" [class.selected]="selectedIndex == i">
               <ion-label>{{ p.name }}</ion-label>

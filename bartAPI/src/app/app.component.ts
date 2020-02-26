@@ -65,13 +65,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.stationNames = this.dService.sideMenu();
-    this.param('12TH')
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+      this.selectedIndex = this.stationNames.findIndex(page => page.abbr.toLowerCase() === path.toLowerCase());
     }
   }
   param(abbr) {
     this.dService.getRoutes(abbr);
+    this.dService.displayAddress(abbr);
   }
 }

@@ -17,13 +17,4 @@ export class FolderPage implements OnInit {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.routes = this.dService.routeDeets();
   }
-  classBG() {
-    for (let i = 0; i<10; i++){
-      if (i % 2 === 0){
-        return 'grey'
-      } else{
-        return 'white'
-      }
-    }
-  }
 }
