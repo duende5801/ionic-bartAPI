@@ -9,10 +9,11 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ModalPage } from './modal/modal.page';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, ModalPage],
+  entryComponents: [ModalPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

@@ -31,7 +31,8 @@
         <ion-item *ngFor="let y of x.estimate; let i = index">
           <ion-label><ion-icon class="{{y.color}}" name="train-outline"></ion-icon></ion-label>
           <ion-label >Platform {{y.platform}}</ion-label>
-          <ion-label >{{y.minutes}} Minutes</ion-label>
+          <ion-label *ngIf="y.minutes === 'Leaving' else elseBlock">Train now leaving</ion-label>
+          <ng-template #elseBlock><ion-label>{{y.minutes}} Minutes</ion-label></ng-template>
         </ion-item>
       </ion-list>
     </div>

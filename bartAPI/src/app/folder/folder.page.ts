@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { Stations } from '../interfaces/stations';
+import { ModalController } from '@ionic/angular';
+import { ModalPage } from '../modal/modal.page';
 
 @Component({
   selector: 'app-folder',
@@ -15,8 +17,9 @@ export class FolderPage implements OnInit {
   public stationName;
   public streetName;
   public city;
+  public sched;
 
-  constructor(private activatedRoute: ActivatedRoute, private dService: DataService) { }
+  constructor(private activatedRoute: ActivatedRoute, private dService: DataService, public modalController: ModalController) { }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
@@ -33,4 +36,14 @@ export class FolderPage implements OnInit {
       }
     }
   }
-}
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ModalPage,
+      componentProps: {
+        sched: this.routes
+      }
+    });
+    return await modal.present().then(_=>{
+      this.sched;
+    })
+  }}
