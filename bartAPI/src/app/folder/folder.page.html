@@ -13,23 +13,27 @@
       <ion-title size="large">{{ folder }}</ion-title>
     </ion-toolbar>
   </ion-header>
-
+  
   <div id="container">
+    <div *ngIf="folder !== 'home'" class="address"><span><strong>{{stationName}}</strong>,</span> {{streetName}}, {{city}}</div>
     <div *ngIf="folder === 'home'" class="container">
       <h2>Weekdays and Saturday Routes</h2>
       <img src="assets/system-map-weekday.png" alt="BART map">
       <h2>Sunday Routes</h2>
       <img src="assets/system-map-sunday.png" alt="BART map">
-    </div>
+    </div> 
+    <div *ngIf="folder !== 'home'">
       <ion-list *ngFor="let x of routes">
         <ion-item-divider>
           <ion-label>Destination: </ion-label>
           <ion-label><strong> {{x.name}}</strong></ion-label>
         </ion-item-divider>
         <ion-item *ngFor="let y of x.estimate; let i = index">
-          <ion-label class="{{y.color}}">Platform {{y.platform}}</ion-label>
-          <ion-label class="{{y.color}}">{{y.minutes}} Minutes</ion-label>
+          <ion-label><ion-icon class="{{y.color}}" name="train-outline"></ion-icon></ion-label>
+          <ion-label >Platform {{y.platform}}</ion-label>
+          <ion-label >{{y.minutes}} Minutes</ion-label>
         </ion-item>
       </ion-list>
+    </div>
     </div>
 </ion-content>

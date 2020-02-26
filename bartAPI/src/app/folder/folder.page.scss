@@ -39,6 +39,7 @@ ion-menu-button {
 }
 .GREEN{
   background-color: green;
+  color: white;
 }
 .BLUE{
   background-color: blue;
@@ -46,6 +47,9 @@ ion-menu-button {
 }
 .GREY{
   background-color: lightgrey;
+}
+.address{
+  font-size: small;
 }
 ion-content ion-toolbar {
   --background: transparent;

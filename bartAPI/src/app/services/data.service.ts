@@ -84,14 +84,14 @@ export class DataService {
   routeDeets() {
     return this.routeTimes;
   }
-  displayAddress(ABBR) {
-    this.address = [];
-    for (const s of this.stationName) {
-      if (s.abbr === ABBR) {
-        this.address.push(s);
-      }
-      console.log(this.address);
-      return this.address;
-    }
-  }
+  // displayAddress(ABBR) {
+  //   this.address = [];
+  //   for (const s of this.stationName) {
+  //     if (s.abbr === ABBR) {
+  //       this.address.push(s);
+  //     }
+  //     console.log(this.address);
+  //     return this.address;
+  //   }
+  // }
 }
